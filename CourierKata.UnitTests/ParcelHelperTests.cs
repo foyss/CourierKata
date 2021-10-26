@@ -40,7 +40,7 @@ namespace CourierKata.UnitTests
                 Width = 1,
                 Height = 1
             };
-            var expectedResult = 10;
+            var expectedResult = 3;
 
             /* Act */
             var actualResult = _parcelHelper.GetDeliveryCost(parcelDimensions);
