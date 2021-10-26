@@ -6,7 +6,7 @@ using CourierKata.Models;
 
 namespace CourierKata.Library.Services
 {
-    public class OrderService
+    public class OrderService : IOrderService
     {
         private readonly IParcelHelper _parcelHelper;
         private readonly IShippingHelper _shippingHelper;
@@ -14,7 +14,7 @@ namespace CourierKata.Library.Services
         public OrderService()
         {
             // These could be injected in via DI should the format of the project be different
-            _parcelHelper = new ParcelHelper(); 
+            _parcelHelper = new ParcelHelper();
             _shippingHelper = new ShippingHelper();
         }
         public OrderDetails CreateOrder(List<ParcelDimensions> parcelDimensionsList, bool speedyDelivery)
