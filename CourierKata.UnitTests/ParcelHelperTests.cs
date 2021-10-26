@@ -69,5 +69,25 @@ namespace CourierKata.UnitTests
             Assert.IsNotNull(actualResult);
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [Test]
+        public void LargeParcelTest()
+        {
+            /* Arrange */
+            var parcelDimensions = new ParcelDimensions
+            {
+                Length = 25,
+                Width = 25,
+                Height = 25
+            };
+            var expectedResult = 15;
+
+            /* Act */
+            var actualResult = _parcelHelper.GetDeliveryCost(parcelDimensions);
+
+            /* Assert */
+            Assert.IsNotNull(actualResult);
+            Assert.AreEqual(expectedResult, actualResult);
+        }
     }
 }
