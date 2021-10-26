@@ -12,7 +12,15 @@ namespace CourierKata.Library.Helpers
 
         public decimal GetDeliveryCost(ParcelDimensions parcelDimensions)
         {
-            return default;
+            var totalDimensionCount = parcelDimensions.Height + parcelDimensions.Length + parcelDimensions.Width;
+
+            return totalDimensionCount switch
+            {
+                < 10 => 3,
+                < 50 => 8,
+                < 100 => 15,
+                >= 100 => 25
+            };
         }
     }
 }
