@@ -31,7 +31,7 @@ namespace CourierKata.UnitTests
         }
 
         [Test]
-        public void BasicSmallParcelTest()
+        public void SmallParcelTest()
         {
             /* Arrange */
             var parcelDimensions = new ParcelDimensions
@@ -41,6 +41,26 @@ namespace CourierKata.UnitTests
                 Height = 1
             };
             var expectedResult = 3;
+
+            /* Act */
+            var actualResult = _parcelHelper.GetDeliveryCost(parcelDimensions);
+
+            /* Assert */
+            Assert.IsNotNull(actualResult);
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [Test]
+        public void MediumParcelTest()
+        {
+            /* Arrange */
+            var parcelDimensions = new ParcelDimensions
+            {
+                Length = 5,
+                Width = 5,
+                Height = 5
+            };
+            var expectedResult = 8;
 
             /* Act */
             var actualResult = _parcelHelper.GetDeliveryCost(parcelDimensions);
