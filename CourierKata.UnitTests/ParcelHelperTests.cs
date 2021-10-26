@@ -8,7 +8,7 @@ using CourierKata.Models;
 namespace CourierKata.UnitTests
 {
     [TestFixture]
-    public class SmallParcelTests
+    public class ParcelHelperTests
     {
         private MockRepository _mockRepository;
 
