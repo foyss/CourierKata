@@ -1,10 +1,11 @@
 ﻿namespace CourierKata.Models
 {
-    public enum ParcelSizeEnum
+    public enum ParcelWeightEnum
     {
         Small,
         Medium,
         Large,
-        XL
+        XL,
+        Heavy
     }
 }
