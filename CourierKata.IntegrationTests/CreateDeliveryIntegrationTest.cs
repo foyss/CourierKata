@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using CourierKata.Library.Helpers;
 using CourierKata.Library.Interfaces;
 using CourierKata.Models;
@@ -21,6 +22,9 @@ namespace CourierKata.IntegrationTests
             _parcelHelper = new ParcelHelper();
         }
 
+        /// <summary>
+        /// NOTE: This test will be used as an input in order to test the project
+        /// </summary>
         [Test]
         public void CreateOrderTest()
         {
@@ -40,7 +44,11 @@ namespace CourierKata.IntegrationTests
                 }
             };
 
+            var expectedResult = 33;
+
             var parcelsDeliveryCost = _parcelHelper.GetDeliveryCost(parcels);
+
+            Debug.WriteLine($"Delivery cost match: {expectedResult == parcelsDeliveryCost}");
         }
     }
 }
