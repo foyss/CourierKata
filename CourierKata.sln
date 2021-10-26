@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourierKata.Library", "Cour
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourierKata.UnitTests", "CourierKata.UnitTests\CourierKata.UnitTests.csproj", "{8C6CF8E3-19A4-4C98-8591-925CB5715602}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourierKata.Models", "CourierKata.Models\CourierKata.Models.csproj", "{4D36449F-2750-424E-9163-B20861DC1068}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8C6CF8E3-19A4-4C98-8591-925CB5715602}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C6CF8E3-19A4-4C98-8591-925CB5715602}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C6CF8E3-19A4-4C98-8591-925CB5715602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D36449F-2750-424E-9163-B20861DC1068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D36449F-2750-424E-9163-B20861DC1068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D36449F-2750-424E-9163-B20861DC1068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D36449F-2750-424E-9163-B20861DC1068}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
