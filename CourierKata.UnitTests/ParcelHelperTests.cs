@@ -1,4 +1,6 @@
-﻿using Moq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Moq;
 using NUnit.Framework;
 
 using CourierKata.Library.Helpers;
@@ -30,84 +32,32 @@ namespace CourierKata.UnitTests
             _mockRepository.VerifyAll();
         }
 
-        [Test]
-        public void SmallParcelTest()
+        [TestCase(1, 1, 1, 3)]
+        [TestCase(5, 5, 5, 8)]
+        [TestCase(25, 25, 25, 15)]
+        [TestCase(100, 100, 100, 25)]
+        public void ParcelDeliveryCostTest(decimal length, decimal width, decimal height, decimal expectedResult)
         {
             /* Arrange */
-            var parcelDimensions = new ParcelDimensions
+            var parcelDimensions = new List<ParcelDimensions>
             {
-                Length = 1,
-                Width = 1,
-                Height = 1
+                new()
+                {
+                    Length = length,
+                    Width = width,
+                    Height = height
+                }
             };
-            var expectedResult = 3;
 
             /* Act */
-            var actualResult = _parcelHelper.GetDeliveryCost(parcelDimensions);
+            var actualResult = _parcelHelper.GetParcelDetails(parcelDimensions);
 
             /* Assert */
+            var parcelCost = actualResult.FirstOrDefault().Cost;
+
             Assert.IsNotNull(actualResult);
-            Assert.AreEqual(expectedResult, actualResult);
-        }
-
-        [Test]
-        public void MediumParcelTest()
-        {
-            /* Arrange */
-            var parcelDimensions = new ParcelDimensions
-            {
-                Length = 5,
-                Width = 5,
-                Height = 5
-            };
-            var expectedResult = 8;
-
-            /* Act */
-            var actualResult = _parcelHelper.GetDeliveryCost(parcelDimensions);
-
-            /* Assert */
-            Assert.IsNotNull(actualResult);
-            Assert.AreEqual(expectedResult, actualResult);
-        }
-
-        [Test]
-        public void LargeParcelTest()
-        {
-            /* Arrange */
-            var parcelDimensions = new ParcelDimensions
-            {
-                Length = 25,
-                Width = 25,
-                Height = 25
-            };
-            var expectedResult = 15;
-
-            /* Act */
-            var actualResult = _parcelHelper.GetDeliveryCost(parcelDimensions);
-
-            /* Assert */
-            Assert.IsNotNull(actualResult);
-            Assert.AreEqual(expectedResult, actualResult);
-        }
-
-        [Test]
-        public void ExtraLargeParcelTest()
-        {
-            /* Arrange */
-            var parcelDimensions = new ParcelDimensions
-            {
-                Length = 100,
-                Width = 100,
-                Height = 100
-            };
-            var expectedResult = 25;
-
-            /* Act */
-            var actualResult = _parcelHelper.GetDeliveryCost(parcelDimensions);
-
-            /* Assert */
-            Assert.IsNotNull(actualResult);
-            Assert.AreEqual(expectedResult, actualResult);
+            Assert.AreEqual(expectedResult, parcelCost);
+            Assert.IsInstanceOf<List<ParcelDetails>>(actualResult);
         }
     }
 }
