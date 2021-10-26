@@ -17,12 +17,12 @@ namespace CourierKata.Library.Services
             _parcelHelper = new ParcelHelper();
             _shippingHelper = new ShippingHelper();
         }
-        public OrderDetails CreateOrder(List<ParcelDimensions> parcelDimensionsList, bool speedyDelivery)
+        public OrderDetails CreateOrder(List<ParcelDimensions> parcelDimensionsList, bool speedyShipping)
         {
             var parcelDetailsList = _parcelHelper.GetParcelDetails(parcelDimensionsList);
             var parcelDetailsCostSum = parcelDetailsList.Sum(t => t.Cost);
 
-            if (speedyDelivery)
+            if (speedyShipping)
                 parcelDetailsCostSum = _shippingHelper.SpeedyShipping(parcelDetailsCostSum);
 
             return new OrderDetails

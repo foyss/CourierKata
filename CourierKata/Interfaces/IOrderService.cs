@@ -6,6 +6,6 @@ namespace CourierKata.Library.Interfaces
 {
     public interface IOrderService
     {
-        OrderDetails CreateOrder(List<ParcelDimensions> parcelDimensionsList, bool speedyDelivery);
+        OrderDetails CreateOrder(List<ParcelDimensions> parcelDimensionsList, bool speedyShipping);
     }
 }

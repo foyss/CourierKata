@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 using CourierKata.Library.Interfaces;
 using CourierKata.Library.Services;
 using CourierKata.Models;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 
 namespace CourierKata.UnitTests
 {
