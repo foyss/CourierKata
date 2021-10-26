@@ -59,5 +59,32 @@ namespace CourierKata.UnitTests
             Assert.AreEqual(expectedResult, parcelCost);
             Assert.IsInstanceOf<List<ParcelDetails>>(actualResult);
         }
+
+        [TestCase(1, 1, 1, 2, 5)]
+        public void ParcelOverWeightTest(decimal length, decimal width, decimal height, decimal weight,
+            decimal expectedResult)
+        {
+            /* Arrange */
+            var parcelDimensions = new List<ParcelDimensions>
+            {
+                new()
+                {
+                    Length = length,
+                    Width = width,
+                    Height = height, 
+                    Weight = weight
+                }
+            };
+
+            /* Act */
+            var actualResult = _parcelHelper.GetParcelDetails(parcelDimensions);
+
+            /* Assert */
+            var parcelCost = actualResult.FirstOrDefault().Cost;
+
+            Assert.IsNotNull(actualResult);
+            Assert.AreEqual(expectedResult, parcelCost);
+            Assert.IsInstanceOf<List<ParcelDetails>>(actualResult);
+        }
     }
 }
